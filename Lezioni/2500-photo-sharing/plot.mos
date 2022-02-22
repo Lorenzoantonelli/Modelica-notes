@@ -1,0 +1,9 @@
+
+plot({c.readsignal, c.outputdata, c.inputdata, c.writesignal,
+      s.readsignal, s.outputdata, s.inputdata, s.writesignal},
+      externalWindow=true,
+      fileName="System_res.mat");
+      
+getErrorString();
+
+

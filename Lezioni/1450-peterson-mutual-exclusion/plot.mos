@@ -1,0 +1,5 @@
+plot({p.pid, m.y, p.pc[1], p.pc[2], m2.y, m2.time_of_request, m2.time_of_grant},
+      externalWindow=true,
+      fileName="System_res.mat");
+      
+getErrorString();

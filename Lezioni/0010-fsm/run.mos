@@ -1,0 +1,17 @@
+loadModel(Modelica);
+getErrorString();
+
+// ogni classe o funzione deve essere in un suo file
+
+loadFile("system.mo");
+getErrorString();
+
+// buildModel(System);
+// getErrorString();
+
+// stopTime è l'orizzonte di simulazione, dopo quanto tempo si ferma la simulazione
+simulate(System, stopTime=20);
+getErrorString();
+
+plot({x}, externalWindow=true); // gli dico di plottarmi il valore di x
+getErrorString();

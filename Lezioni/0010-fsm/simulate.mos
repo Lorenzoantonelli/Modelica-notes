@@ -1,0 +1,2 @@
+simulate(System, stopTime=20); // run the simulation for 20 seconds
+getErrorString(); // print the error string

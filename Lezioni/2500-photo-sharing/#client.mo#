@@ -1,0 +1,128 @@
+
+block Client
+
+parameter Real T = 1;    // clock
+
+
+// client input queue (ciq)
+
+// reader
+OutputBoolean readsignal;
+InputInteger outputdata;  
+InputBoolean datavailable;  
+
+
+// server input queue (siq)
+
+// writer
+OutputInteger inputdata;
+OutputBoolean writesignal;
+InputBoolean spaceavailable;
+
+Integer pupil;   // student id
+Integer value;   // value from server
+Integer photo_name;   // photo  id
+
+
+
+Integer pc;   // pc (status) for each pupil
+
+algorithm
+
+when initial() then
+
+writesignal := false;
+readsignal := false;
+pc := 0;
+value := 0;
+pupil := 0;
+
+elsewhen sample(0, T) then
+
+
+   
+if ( (pc == 0) and (myrandom() <= 0.5) )  then
+// select pupil that tries to upload photo
+
+   pupil := 1 + integer(myrandom()*K.N*0.999);   // pupil that acts
+   inputdata := pupil;
+   pc := 10; 
+
+  print("client: time = "+String(time)+"; 0pc="+String(pc)+"; inputdata = "+String(inputdata)+"\n");
+   
+elseif ( (pc == 5)  )  then
+// select old value for pupil 
+
+   pupil := pre(pupil);  // pupil that acts
+   inputdata := pupil;
+   pc := 10; 
+
+  print("client: time = "+String(time)+"; 5pc="+String(pc)+"; inputdata = "+String(inputdata)+"\n");
+
+elseif (pc == 10) and pre(spaceavailable)  then
+// send pupil id to server
+
+   writesignal := not(pre(writesignal));
+   pc := 20;
+
+
+elseif (pc == 20)   then
+// pick photo name
+
+   photo_name := 1 + integer(myrandom()*K.M*0.999);
+   inputdata := photo_name;
+   pc := 30;
+
+  print("client: time = "+String(time)+"; 20pc="+String(pc)+"; inputdata = "+String(inputdata)+"\n");
+
+elseif (pc == 30) and pre(spaceavailable)  then
+// send photo name to server
+
+   writesignal := not(pre(writesignal));
+   pc := 40;
+
+elseif (pc == 40) and pre(datavailable)  then
+// ask value from server
+
+   readsignal := not(pre(readsignal)) ;
+   pc := 50;
+
+
+elseif (pc == 50)   then
+// read value from server
+
+   value := pre(outputdata);
+
+print("client: time = "+String(time)+"; 50pc="+String(pc)+"; value = "+String(value)+"\n");
+
+if (value == 1) then
+// name is new, you may upload photo
+        pc := 60;
+else // name already present
+     if (myrandom() <= 0.5) then
+     // pick new photo name and try again
+        pc := 5;
+     else // give up
+        pc := 0;
+     end if;  
+end if;
+
+elseif (pc == 60) and pre(spaceavailable)  then
+// upload photo
+
+   writesignal := not(pre(writesignal));
+   pc := 0;  // loop
+
+print("client: time = "+String(time)+"; 60pc="+String(pc)+"; value = "+String(value)+"\n");
+
+else  // busy waiting
+
+	pc := pre(pc);
+
+end if;
+
+
+end when;
+
+
+end Client;

@@ -1,0 +1,26 @@
+loadModel(Modelica);
+getErrorString();
+
+
+loadFile("randgen.mo");
+getErrorString();
+
+loadFile("connectors.mo");
+getErrorString();
+
+loadFile("car.mo");
+getErrorString();
+
+loadFile("driver.mo");
+getErrorString();
+
+loadFile("system.mo");
+getErrorString();
+
+simulate(System, stopTime=2);
+getErrorString();
+
+plot({q.x, q.v, q.throttle, q.brake}, externalWindow=true);
+//plot({q.x, q.throttle, q.brake}, externalWindow=true);
+getErrorString();
+

@@ -1,0 +1,33 @@
+loadModel(Modelica);
+getErrorString();
+
+loadFile("randgen.mo");
+getErrorString();
+
+loadFile("connectors.mo");
+getErrorString();
+
+loadFile("constants.mo");
+getErrorString();
+
+loadFile("types.mo");
+getErrorString();
+
+loadFile("next.mo");
+getErrorString();
+
+loadFile("traffic-light.mo");
+getErrorString();
+
+loadFile("update.mo");
+getErrorString();
+
+loadFile("system.mo");
+getErrorString();
+
+simulate(System, stopTime=200);
+getErrorString();
+
+plot({env.x, env.counter}, externalWindow=true);
+getErrorString();
+

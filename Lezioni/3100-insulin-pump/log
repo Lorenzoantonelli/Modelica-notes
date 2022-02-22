@@ -1,0 +1,21 @@
+Begin log
+
+Test 0 :
+LOG_SUCCESS       | info    | The initialization finished successfully without homotopy method.
+LOG_SUCCESS       | info    | The simulation finished successfully.
+
+Test 1 :
+LOG_SUCCESS       | info    | The initialization finished successfully without homotopy method.
+LOG_SUCCESS       | info    | The simulation finished successfully.
+
+Test 2 :
+LOG_SUCCESS       | info    | The initialization finished successfully without homotopy method.
+LOG_SUCCESS       | info    | The simulation finished successfully.
+
+Test 3 :
+LOG_SUCCESS       | info    | The initialization finished successfully without homotopy method.
+LOG_SUCCESS       | info    | The simulation finished successfully.
+
+Test 4 :
+LOG_SUCCESS       | info    | The initialization finished successfully without homotopy method.
+LOG_SUCCESS       | info    | The simulation finished successfully.

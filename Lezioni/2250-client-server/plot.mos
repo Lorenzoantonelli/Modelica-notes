@@ -1,0 +1,12 @@
+
+//plot({c.pc, c.outputdata, c.inputdata, s.pc, s.outputdata, s.inputdata,
+//ciq.inputdata, ciq.writesignal, ciq.readsignal, ciq.outputdata, ciq.datavailable,
+//siq.inputdata, siq.outputdata, siq.datavailable, siq.readsignal, siq.writesignal, siq.fifosize, m.y},
+//externalWindow=true, fileName="System_res.mat");
+
+plot({c.outputdata, c.inputdata, m.y}, externalWindow=true, fileName="System_res.mat");
+
+
+getErrorString();
+
+

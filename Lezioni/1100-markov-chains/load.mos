@@ -1,0 +1,16 @@
+loadModel(Modelica);
+getErrorString();
+
+loadFile("randgen.mo");
+getErrorString();
+
+
+loadFile("pick.mo");
+getErrorString();
+
+loadFile("mc.mo");
+getErrorString();
+
+loadFile("system.mo");
+getErrorString();
+

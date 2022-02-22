@@ -1,0 +1,5 @@
+// lancia la simulazione ma non la esegue
+runScript("load.mos");
+
+buildModel(System, stopTime=2);
+getErrorString();

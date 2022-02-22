@@ -1,0 +1,31 @@
+loadModel(Modelica);
+getErrorString();
+
+
+loadFile("connectors.mo");
+getErrorString();
+
+loadFile("xor.mo");
+getErrorString();
+
+loadFile("fadd.mo");
+getErrorString();
+
+loadFile("env.mo");
+getErrorString();
+
+loadFile("suv.mo");
+getErrorString();
+
+loadFile("monitor.mo");
+getErrorString();
+
+loadFile("system.mo");
+getErrorString();
+
+simulate(System, stopTime=20);
+getErrorString();
+
+plot({mysuv.x[1], mysuv.x[2], mysuv.carry_in, mysuv.y, mysuv.carry_out, m.z}, externalWindow=true);
+getErrorString();
+

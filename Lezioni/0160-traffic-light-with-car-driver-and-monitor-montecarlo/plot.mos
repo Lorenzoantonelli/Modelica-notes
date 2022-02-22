@@ -1,0 +1,10 @@
+
+plot({tl.x, q.x, q.v, m1.z, q.throttle, q.brake}, externalWindow=true, fileName="System_res.mat");
+//plot({q.x, q.throttle, q.brake}, externalWindow=true, fileName="System_res.mat");
+getErrorString();
+
+
+
+//plot({x}, externalWindow=true, fileName="System_res.mat");
+//getErrorString();
+

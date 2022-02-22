@@ -1,0 +1,8 @@
+
+plot({s.x, s.writesignal, c.fifosize, c.inputdata, c.outputdata, c.datavailable, c.spaceavailable, r.data, r.readsignal, r.x, req1.error},
+      externalWindow=true,
+      fileName="System_res.mat");
+      
+getErrorString();
+
+

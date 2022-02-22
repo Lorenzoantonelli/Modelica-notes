@@ -1,0 +1,4 @@
+
+plot({env.x, env.counter}, externalWindow=true, fileName="System_res.mat");
+getErrorString();
+

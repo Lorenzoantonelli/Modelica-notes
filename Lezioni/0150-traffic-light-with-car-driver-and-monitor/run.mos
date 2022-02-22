@@ -1,0 +1,43 @@
+loadModel(Modelica);
+getErrorString();
+
+loadFile("constants.mo");
+getErrorString();
+
+loadFile("next.mo");
+getErrorString();
+
+loadFile("traffic-light.mo");
+getErrorString();
+
+loadFile("types.mo");
+getErrorString();
+
+loadFile("update.mo");
+getErrorString();
+
+loadFile("monitor.mo");
+getErrorString();
+
+loadFile("randgen.mo");
+getErrorString();
+
+loadFile("connectors.mo");
+getErrorString();
+
+loadFile("car.mo");
+getErrorString();
+
+loadFile("driver.mo");
+getErrorString();
+
+loadFile("system.mo");
+getErrorString();
+
+simulate(System, stopTime=2);
+getErrorString();
+
+plot({tl.x, q.x, q.v, m1.z, q.throttle, q.brake}, externalWindow=true);
+//plot({q.x, q.throttle, q.brake}, externalWindow=true);
+getErrorString();
+

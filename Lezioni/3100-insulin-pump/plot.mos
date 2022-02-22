@@ -1,0 +1,9 @@
+
+plot({patient.EndogenInsulin, patient.SugarLevel,
+     patient.InsulinDose, patient.MealDose, m1.y, m2.y, m2.Avg},
+      externalWindow=true,
+      fileName="System_res.mat");
+      
+getErrorString();
+
+
